@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_global_body_contents",
+  "info": {
+    "displayName": "Paragraph",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "copy": {
+      "type": "richtext"
+    }
+  }
+}

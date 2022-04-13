@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_images",
+  "info": {
+    "displayName": "Display Image",
+    "icon": "image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
