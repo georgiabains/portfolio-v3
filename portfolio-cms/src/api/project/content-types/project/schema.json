@@ -21,19 +21,36 @@
       "type": "uid",
       "targetField": "title"
     },
-    "content": {
+    "project_card": {
+      "displayName": "Card",
+      "type": "component",
+      "repeatable": false,
+      "component": "project.card"
+    },
+    "project_page": {
       "type": "dynamiczone",
       "components": [
         "global.body-content",
+        "global.image-with-caption",
         "global.image",
-        "global.image-with-caption"
+        "global.link",
+        "project.date-range"
       ]
     },
     "categories": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "projects"
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "languages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::language.language"
+    },
+    "my_roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-role.project-role"
     }
   }
 }

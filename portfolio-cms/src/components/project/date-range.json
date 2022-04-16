@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_project_date_ranges",
+  "info": {
+    "displayName": "Date Range",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "date_completed": {
+      "type": "date"
+    },
+    "date_started": {
+      "type": "date"
+    }
+  }
+}

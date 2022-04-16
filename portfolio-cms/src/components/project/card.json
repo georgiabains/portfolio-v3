@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_project_cards",
+  "info": {
+    "displayName": "Project Card",
+    "icon": "leaf",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "preview_images": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project.preview-images"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.link"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
