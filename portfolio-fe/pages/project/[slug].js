@@ -1,5 +1,5 @@
 import { apolloCon } from "../../connection/apolloCon"
-import { getProject, GET_ALL_PROJECTS } from "../../graphql/queries"
+import { getProject, getAllProjects } from "../../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -51,7 +51,7 @@ const Project = ({ project }) => {
 
 export async function getStaticPaths() {
   const projects = await apolloCon.query({
-    query: GET_ALL_PROJECTS,
+    query: getAllProjects,
   })
 
   return {

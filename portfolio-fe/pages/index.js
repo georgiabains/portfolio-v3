@@ -1,5 +1,5 @@
 import { apolloCon } from "../connection/apolloCon"
-import { GET_ALL_PROJECTS } from "../graphql/queries"
+import { getAllProjects } from "../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -27,7 +27,7 @@ export default function Home({ projects }) {
 
 export async function getStaticProps(context) {
   const { data, loading, error } = await apolloCon.query({
-    query: GET_ALL_PROJECTS,
+    query: getAllProjects,
   })
 
   return {
