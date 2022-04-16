@@ -23,7 +23,7 @@ export function getProject(slug) {
           attributes {
             title
             slug
-            content {
+            project_page {
               __typename
               ... on ComponentGlobalImage {
                 id

@@ -11,7 +11,7 @@ const Project = ({ project }) => {
       <Link href={`/`}>
         <a>back</a>
       </Link>
-      {thisProject.attributes.content.map((content) => {
+      {thisProject.attributes.project_page.map((content) => {
         if (content.displayImage) {
           const imageData = content.displayImage.data.attributes
           return (
