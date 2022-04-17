@@ -143,6 +143,11 @@ export function getProject(slug) {
                 }
                 caption
               }
+              ... on ComponentGlobalVideoWithCaption {
+                id
+                vimeo_id
+                videoCaption : caption
+              }
             }
           }
         }
