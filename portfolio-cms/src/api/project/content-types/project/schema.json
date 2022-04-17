@@ -33,7 +33,8 @@
         "global.body-content",
         "global.image",
         "global.image-with-caption",
-        "project.date-range"
+        "project.date-range",
+        "global.video-with-caption"
       ]
     },
     "categories": {
