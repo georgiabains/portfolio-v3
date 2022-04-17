@@ -5,7 +5,6 @@ import Link from "next/link"
 
 const Project = ({ project }) => {
   const thisProject = project[0]
-  console.log(thisProject.attributes)
   return (
     <div key={`project-${thisProject.id}`}>
       <h1>{thisProject.attributes.title}</h1>
