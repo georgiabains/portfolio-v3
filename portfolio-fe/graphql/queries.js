@@ -107,6 +107,12 @@ export function getProject(slug) {
                 }
               }
             }
+            project_date {
+              id
+              is_ongoing
+              year_started
+              year_completed
+            }
             project_card {
             	links {
                 id

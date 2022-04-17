@@ -46,6 +46,19 @@ const Project = ({ project }) => {
             )
           })}
         </ul>
+
+        <p className="date">
+          {
+            thisProject.attributes.project_date.year_started 
+            ? thisProject.attributes.project_date.year_started + '-' 
+            : null
+          }
+          {
+            thisProject.attributes.project_date.is_ongoing 
+            ? 'Current' 
+            : thisProject.attributes.project_date.year_completed
+          }
+        </p>
       </div>
 
       {thisProject.attributes.project_page.map((content) => {
