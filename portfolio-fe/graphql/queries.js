@@ -79,6 +79,34 @@ export function getProject(slug) {
           attributes {
             title
             slug
+            categories {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            languages {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            my_roles {
+              data {
+                attributes {
+                  name
+                }
+              }
+            }
+            project_card {
+            	links {
+                id
+                url
+                display_text
+              }
+            }
             project_page {
               __typename
               ... on ComponentGlobalImage {
