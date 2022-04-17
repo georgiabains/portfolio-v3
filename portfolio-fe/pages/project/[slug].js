@@ -5,25 +5,63 @@ import Link from "next/link"
 
 const Project = ({ project }) => {
   const thisProject = project[0]
+  console.log(thisProject.attributes)
   return (
     <div key={`project-${thisProject.id}`}>
       <h1>{thisProject.attributes.title}</h1>
       <Link href={`/`}>
         <a>back</a>
       </Link>
+
+      <div className="intro">
+        <ul className="links">
+          {thisProject.attributes.project_card.links.map((link) => {
+            return (
+              <li key={link.id}>
+                <a href={link.url}>{link.display_text}</a>
+              </li>
+            )
+          })}
+        </ul>
+
+        <ul className="categories">
+          {thisProject.attributes.categories.data.map((category) => {
+            return (
+              <li key={category.attributes.name}>{category.attributes.name}</li>
+            )
+          })}
+        </ul>
+
+        <ul className="languages">
+          {thisProject.attributes.languages.data.map((language) => {
+            return (
+              <li key={language.attributes.name}>{language.attributes.name}</li>
+            )
+          })}
+        </ul>
+
+        <ul className="roles">
+          {thisProject.attributes.my_roles.data.map((role) => {
+            return (
+              <li key={role.attributes.name}>{role.attributes.name}</li>
+            )
+          })}
+        </ul>
+      </div>
+
       {thisProject.attributes.project_page.map((content) => {
         if (content.displayImage) {
           const imageData = content.displayImage.data.attributes
           return (
             <div key={`image-${content.id}`}>
-              <Image 
+              <Image
                 src={`http://localhost:3333${imageData.url}`}
                 alt={imageData.alternativeText}
                 width={500}
                 height={250}
               />
             </div>
-          ) 
+          )
         }
         if (content.copy) {
           return (
@@ -34,7 +72,7 @@ const Project = ({ project }) => {
           const imageData = content.imageWithCaption.data.attributes
           return (
             <div key={`image-${content.id}`}>
-              <Image 
+              <Image
                 src={`http://localhost:3333${imageData.url}`}
                 alt={imageData.alternativeText}
                 width={500}
@@ -43,7 +81,7 @@ const Project = ({ project }) => {
               <p>{content.caption}</p>
             </div>
           )
-        }        
+        }
       })}
     </div>
   )
