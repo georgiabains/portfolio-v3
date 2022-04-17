@@ -14,6 +14,62 @@ export const getAllProjects = gql`
   }
 `
 
+export const getAllProjectCards = gql`
+  query {
+    projects {
+      data {
+        id
+        attributes {
+          title
+          slug
+          categories {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
+          languages {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
+          ... on Project {
+            project_card {
+              preview_images {
+                desktop {
+                  data {
+                    attributes {
+                      url
+                      alternativeText
+                    }
+                  }
+                }
+                mobile {
+                  data {
+                    attributes {
+                      url
+                      alternativeText
+                    }
+                  }
+                }
+              }
+              links {
+                id
+                url
+                display_text
+              }
+              description
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 export function getProject(slug) {
   const query = gql`
     query {
