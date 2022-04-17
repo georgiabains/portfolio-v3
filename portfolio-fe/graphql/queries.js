@@ -36,6 +36,13 @@ export const getAllProjectCards = gql`
               }
             }
           }
+          my_roles {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
           ... on Project {
             project_card {
               preview_images {

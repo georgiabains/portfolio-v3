@@ -42,6 +42,20 @@ export default function Home({ projects }) {
                   </li>
                 </ul>
                 <p>{project.attributes.project_card.description}</p>
+                <ul className="roles">
+                  {project.attributes.my_roles.data.map((role) => {
+                    return (
+                      <li key={role.attributes.name}>{role.attributes.name}</li>
+                    )
+                  })}
+                </ul>
+                <ul className="languages">
+                  {project.attributes.languages.data.map((language) => {
+                    return (
+                      <li key={language.attributes.name}>{language.attributes.name}</li>
+                    )
+                  })}
+                </ul>
               </div>
             )
           })
