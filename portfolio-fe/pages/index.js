@@ -2,11 +2,12 @@ import { apolloCon } from "../connection/apolloCon"
 import { getAllProjectCards } from "../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
+import Header from "../components/header"
 
 export default function Home({ projects }) {
   return (
     <div>
-      <h1>Portfolio</h1>
+      <Header />
       <div>
         {projects &&
           projects.map((project) => {
