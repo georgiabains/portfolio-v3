@@ -33,7 +33,6 @@
         "global.body-content",
         "global.image",
         "global.image-with-caption",
-        "project.date-range",
         "global.video-with-caption"
       ]
     },
@@ -51,6 +50,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::project-role.project-role"
+    },
+    "project_date": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project.date-range"
     }
   }
 }
