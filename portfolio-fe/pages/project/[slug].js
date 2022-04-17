@@ -7,7 +7,7 @@ const Project = ({ project }) => {
   const thisProject = project[0]
   return (
     <div key={`project-${thisProject.id}`}>
-      <h1>{thisProject.attributes.title}</h1>
+      <h2>{thisProject.attributes.title}</h2>
       <Link href={`/`}>
         <a>back</a>
       </Link>
