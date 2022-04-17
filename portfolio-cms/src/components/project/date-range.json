@@ -2,15 +2,20 @@
   "collectionName": "components_project_date_ranges",
   "info": {
     "displayName": "Date Range",
-    "icon": "calendar-alt"
+    "icon": "calendar-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "date_completed": {
-      "type": "date"
+    "is_ongoing": {
+      "type": "boolean",
+      "default": false
     },
-    "date_started": {
-      "type": "date"
+    "year_started": {
+      "type": "string"
+    },
+    "year_completed": {
+      "type": "string"
     }
   }
 }
