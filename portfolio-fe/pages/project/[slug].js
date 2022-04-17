@@ -81,6 +81,13 @@ const Project = ({ project }) => {
             </div>
           )
         }
+        if (content.vimeo_id) {
+          return (
+            <div key={`video-${content.id}`}>
+              <iframe src={`https://player.vimeo.com/video/${content.vimeo_id}`} width="640" height="350" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
+            </div>
+          )
+        }
       })}
     </div>
   )
