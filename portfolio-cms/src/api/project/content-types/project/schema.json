@@ -31,9 +31,8 @@
       "type": "dynamiczone",
       "components": [
         "global.body-content",
-        "global.image-with-caption",
         "global.image",
-        "global.link",
+        "global.image-with-caption",
         "project.date-range"
       ]
     },
