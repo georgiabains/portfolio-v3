@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ siteHeader }) {
   return (
     <header>
-      <h1>Portfolio</h1>
+      <h1>{siteHeader}</h1>
       <nav>
         <ul>
           <li>

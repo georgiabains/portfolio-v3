@@ -1,5 +1,30 @@
 import gql from 'graphql-tag'
 
+export const getHeader = gql`
+  query {
+    header {
+      data {
+        attributes {
+          title
+        }
+      }
+    }
+  }
+`
+
+export const getAbout = gql`
+  query {
+    about {
+      data {
+        attributes {
+          title
+          content
+        }
+      }
+    }
+  }
+`
+
 export const getAllProjects = gql`
   query {
     projects {
