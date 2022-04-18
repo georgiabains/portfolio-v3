@@ -2,13 +2,14 @@ import { apolloCon } from "../connection/apolloCon"
 import { getAbout, getHeader } from "../graphql/queries"
 import Link from "next/link"
 import Header from "../components/header"
+import ReactMarkdown from "react-markdown"
 
 export default function About({ siteHeader, about }) {
   return (
     <div>
       <Header siteHeader={siteHeader}/>
       <h2>{about.attributes.title}</h2>
-      <p>{about.attributes.content}</p>
+      <ReactMarkdown children={about.attributes.content} />
       <Link href="/">
         <a>back</a>
       </Link>
