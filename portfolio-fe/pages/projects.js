@@ -7,7 +7,7 @@ import Header from "../components/header"
 export default function Home({ header, projects }) {
   return (
     <div>
-      <Header siteHeader={header.attributes.title}/>
+      <Header siteHeader={header}/>
       <h2>Projects</h2>
       <div>
         {projects &&

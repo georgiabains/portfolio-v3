@@ -6,7 +6,7 @@ import Header from "../components/header"
 export default function About({ siteHeader, about }) {
   return (
     <div>
-      <Header siteHeader={siteHeader.attributes.title}/>
+      <Header siteHeader={siteHeader}/>
       <h2>{about.attributes.title}</h2>
       <p>{about.attributes.content}</p>
       <Link href="/">

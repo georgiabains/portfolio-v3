@@ -8,7 +8,7 @@ const Project = ({ header, project }) => {
   const thisProject = project[0]
   return (
     <>
-      <Header siteHeader={header.attributes.title}/>
+      <Header siteHeader={header}/>
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>
         <Link href={`/`}>
