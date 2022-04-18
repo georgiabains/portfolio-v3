@@ -3,6 +3,7 @@ import { getHeader, getProject, getAllProjects } from "../../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
 import Header from "../../components/header"
+import ReactMarkdown from "react-markdown"
 
 const Project = ({ header, project }) => {
   const thisProject = project[0]
@@ -80,7 +81,7 @@ const Project = ({ header, project }) => {
           }
           if (content.copy) {
             return (
-              <p key={`copy-${content.id}`}>{content.copy}</p>
+              <ReactMarkdown children={content.copy} key={content.id} />
             )
           }
           if (content.imageWithCaption) {
