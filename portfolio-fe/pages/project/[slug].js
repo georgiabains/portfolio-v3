@@ -1,5 +1,7 @@
 import { apolloClient } from "../../lib/apolloClient"
-import { GET_HEADER, GET_PROJECT, GET_ALL_PROJECT_SLUGS } from "../../graphql/queries"
+import { GET_HEADER } from "../../graphql/header"
+import { GET_PROJECT } from "../../graphql/queries/projects/project-page"
+import { GET_ALL_PROJECT_SLUGS } from "../../graphql/queries/projects/all-projects"
 import Image from "next/image"
 import Link from "next/link"
 import Header from "../../components/header"
