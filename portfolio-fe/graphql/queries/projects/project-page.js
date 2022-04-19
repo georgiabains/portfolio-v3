@@ -4,10 +4,6 @@ import { PROJECT_TITLE_AND_SLUG, PROJECT_RELATIONS } from '../../fragments/proje
 
 export function GET_PROJECT(slug) {
   const query = gql`
-    ${PROJECT_TITLE_AND_SLUG}
-    ${LINKS_DATA}
-    ${PROJECT_RELATIONS}
-    ${IMAGE_DATA}
     query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
@@ -54,6 +50,10 @@ export function GET_PROJECT(slug) {
         }
       }
     }
+    ${IMAGE_DATA}
+    ${LINKS_DATA}
+    ${PROJECT_RELATIONS}
+    ${PROJECT_TITLE_AND_SLUG}
   `
   
   return query
