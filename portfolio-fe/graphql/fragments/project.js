@@ -1,12 +1,5 @@
 import gql from 'graphql-tag'
 
-export const PROJECT_TITLE_AND_SLUG = gql`
-  fragment ProjectTitleAndSlug on Project {
-    title
-    slug
-  }
-`
-
 export const PROJECT_RELATIONS = gql`
   fragment ProjectRelations on Project {
     categories {
@@ -30,5 +23,12 @@ export const PROJECT_RELATIONS = gql`
         }
       }
     }
+  }
+`
+
+export const PROJECT_TITLE_AND_SLUG = gql`
+  fragment ProjectTitleAndSlug on Project {
+    title
+    slug
   }
 `
