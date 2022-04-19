@@ -1,4 +1,4 @@
-import { apolloCon } from "../../connection/apolloCon"
+import { apolloClient } from "../../lib/apolloClient"
 import { GET_HEADER, GET_PROJECT, GET_ALL_PROJECT_SLUGS } from "../../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
@@ -112,7 +112,7 @@ const Project = ({ header, project }) => {
 }
 
 export async function getStaticPaths() {
-  const projects = await apolloCon.query({
+  const projects = await apolloClient.query({
     query: GET_ALL_PROJECT_SLUGS,
   })
 
@@ -127,11 +127,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { data, loading, error } = await apolloCon.query({
+  const { data, loading, error } = await apolloClient.query({
     query: GET_PROJECT(context.params.slug),
   })
 
-  const { data: headerData, loading: headerLoading , error: headerError } = await apolloCon.query({
+  const { data: headerData, loading: headerLoading , error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
 

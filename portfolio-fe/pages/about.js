@@ -1,4 +1,4 @@
-import { apolloCon } from "../connection/apolloCon"
+import { apolloClient } from "../lib/apolloClient"
 import { GET_ABOUT, GET_HEADER } from "../graphql/queries"
 import Link from "next/link"
 import Header from "../components/header"
@@ -18,11 +18,11 @@ export default function About({ siteHeader, about }) {
 }
 
 export async function getStaticProps(context) {
-  const { data, loading, error } = await apolloCon.query({
+  const { data, loading, error } = await apolloClient.query({
     query: GET_HEADER,
   })
 
-  const { data: aboutData, aboutLoading, aboutError } = await apolloCon.query({
+  const { data: aboutData, aboutLoading, aboutError } = await apolloClient.query({
     query: GET_ABOUT,
   })
 
