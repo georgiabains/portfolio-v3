@@ -40,3 +40,14 @@ export const PROJECT_RELATIONS = gql`
     }
   }
 `
+
+export const IMAGE_DATA = gql`
+  fragment ImageData on UploadFileEntityResponse {
+    data {
+      attributes {
+        url
+        alternativeText
+      }
+    }
+  }
+`

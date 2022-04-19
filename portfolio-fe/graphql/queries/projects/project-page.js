@@ -1,11 +1,12 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG, LINKS_DATA, PROJECT_RELATIONS } from '../../fragments/fragments'
+import { PROJECT_TITLE_AND_SLUG, LINKS_DATA, PROJECT_RELATIONS, IMAGE_DATA } from '../../fragments/fragments'
 
 export function GET_PROJECT(slug) {
   const query = gql`
     ${PROJECT_TITLE_AND_SLUG}
     ${LINKS_DATA}
     ${PROJECT_RELATIONS}
+    ${IMAGE_DATA}
     query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
@@ -25,16 +26,10 @@ export function GET_PROJECT(slug) {
               }
             }
             project_page {
-              __typename
               ... on ComponentGlobalImage {
                 id
                 displayImage : image {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
+                  ...ImageData
                 }
               }
               ... on ComponentGlobalBodyContent {
@@ -44,12 +39,7 @@ export function GET_PROJECT(slug) {
               ... on ComponentGlobalImageWithCaption {
                 id
                 imageWithCaption : image {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
+                  ...ImageData
                 }
                 caption
               }
