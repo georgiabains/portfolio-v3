@@ -1,5 +1,6 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG, LINKS_DATA, PROJECT_RELATIONS, IMAGE_DATA } from '../../fragments/fragments'
+import { IMAGE_DATA, LINKS_DATA } from '../../fragments/global'
+import { PROJECT_TITLE_AND_SLUG, PROJECT_RELATIONS } from '../../fragments/project'
 
 export function GET_PROJECT(slug) {
   const query = gql`
