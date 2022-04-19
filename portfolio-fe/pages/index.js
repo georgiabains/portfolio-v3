@@ -8,7 +8,7 @@ import Header from "../components/header"
 export default function Home({ header, projects }) {
   return (
     <div>
-      <Header siteHeader={header}/>
+      <Header header={header}/>
       <div>
         {projects &&
           projects.map((project) => {

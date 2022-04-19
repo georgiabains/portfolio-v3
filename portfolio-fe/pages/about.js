@@ -8,7 +8,7 @@ import ReactMarkdown from "react-markdown"
 export default function About({ siteHeader, about }) {
   return (
     <div>
-      <Header siteHeader={siteHeader}/>
+      <Header header={siteHeader}/>
       <h2>{about.attributes.title}</h2>
       <ReactMarkdown children={about.attributes.content} />
       <Link href="/">

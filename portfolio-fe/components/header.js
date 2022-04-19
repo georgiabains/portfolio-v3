@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-export default function Header({ siteHeader }) {
+export default function Header({ header }) {
   return (
     <header>
-      <h1>{siteHeader.attributes.title}</h1>
+      <h1>{header.attributes.title}</h1>
       <nav>
         <ul>
-          {siteHeader.attributes.nav_links.map((link) => {
+          {header.attributes.nav_links.map((link) => {
             return (
               <li key={link.id}>
                 <Link href={link.url}>
