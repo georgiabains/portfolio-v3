@@ -68,20 +68,21 @@ export default function Home({ header, projects }) {
 }
 
 export async function getStaticProps(context) {
-  const { data, loading, error } = await apolloClient.query({
-    query: GET_ALL_PROJECT_CARDS,
-  })
-
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
+  
+  const { data: projectData, loading: projectLoading, error: projectError } = await apolloClient.query({
+    query: GET_ALL_PROJECT_CARDS,
+  })
 
+  const sanitizedProjectData = projectData.projects.data
   const sanitizedHeaderData = headerData.header.data
 
   return {
     props: {
-      projects: data.projects.data,
       header: sanitizedHeaderData,
+      projects: sanitizedProjectData,
     }
   }
 }

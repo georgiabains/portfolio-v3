@@ -128,19 +128,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { data, loading, error } = await apolloClient.query({
-    query: GET_PROJECT(context.params.slug),
-  })
-
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
+  
+  const { data: projectData, loading: projectLoading, error: projectError } = await apolloClient.query({
+    query: GET_PROJECT(context.params.slug),
+  })
 
   const sanitizedHeaderData = headerData.header.data
+  const sanitizedProjectData = projectData.projects.data
 
   return {
     props: {
-      project: data.projects.data,
+      project: sanitizedProjectData,
       header: sanitizedHeaderData,
     }
   }

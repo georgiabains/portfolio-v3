@@ -27,7 +27,8 @@ export async function getStaticProps() {
     query: GET_ABOUT,
   })
 
-  const [sanitizedHeaderData, sanitizedAboutData] = [headerData.header.data, aboutData.about.data]
+  const sanitizedHeaderData = headerData.header.data
+  const sanitizedAboutData = aboutData.about.data
 
   return {
     props: {
