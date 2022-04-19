@@ -1,14 +1,15 @@
 import gql from 'graphql-tag'
+import { PROJECT_TITLE_AND_SLUG } from '../../fragments/fragments'
 
 export function GET_PROJECT(slug) {
   const query = gql`
+    ${PROJECT_TITLE_AND_SLUG}
     query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
           id
           attributes {
-            title
-            slug
+            ...ProjectTitleAndSlug
             categories {
               data {
                 attributes {
