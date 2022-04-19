@@ -5,10 +5,10 @@ import Link from "next/link"
 import Header from "../components/header"
 import ReactMarkdown from "react-markdown"
 
-export default function About({ siteHeader, about }) {
+export default function About({ header, about }) {
   return (
     <div>
-      <Header header={siteHeader}/>
+      <Header header={header}/>
       <h2>{about.attributes.title}</h2>
       <ReactMarkdown children={about.attributes.content} />
       <Link href="/">
@@ -18,20 +18,20 @@ export default function About({ siteHeader, about }) {
   )
 }
 
-export async function getStaticProps(context) {
-  const { data, loading, error } = await apolloClient.query({
+export async function getStaticProps() {
+  const { data: headerData, loading: headerLoading, error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
 
-  const { data: aboutData, aboutLoading, aboutError } = await apolloClient.query({
+  const { data: aboutData, loading: aboutLoading, error: aboutError } = await apolloClient.query({
     query: GET_ABOUT,
   })
 
-  const sanitizedAboutData = aboutData.about.data
+  const [sanitizedHeaderData, sanitizedAboutData] = [headerData.header.data, aboutData.about.data]
 
   return {
     props: {
-      siteHeader: data.header.data,
+      header: sanitizedHeaderData,
       about: sanitizedAboutData,
     }
   }
