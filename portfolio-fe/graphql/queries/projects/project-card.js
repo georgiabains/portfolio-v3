@@ -1,36 +1,17 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG, LINKS_DATA } from '../../fragments/fragments'
+import { PROJECT_TITLE_AND_SLUG, LINKS_DATA, PROJECT_RELATIONS } from '../../fragments/fragments'
 
 export const GET_ALL_PROJECT_CARDS = gql`
   ${PROJECT_TITLE_AND_SLUG}
   ${LINKS_DATA}
+  ${PROJECT_RELATIONS}
   query allProjectCardsQuery {
     projects {
       data {
         id
         attributes {
           ...ProjectTitleAndSlug
-          categories {
-            data {
-              attributes {
-                name
-              }
-            }
-          }
-          languages {
-            data {
-              attributes {
-                name
-              }
-            }
-          }
-          my_roles {
-            data {
-              attributes {
-                name
-              }
-            }
-          }
+          ...ProjectRelations
           ... on Project {
             project_card {
               preview_images {

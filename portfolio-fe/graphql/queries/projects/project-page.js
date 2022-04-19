@@ -1,37 +1,18 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG, LINKS_DATA } from '../../fragments/fragments'
+import { PROJECT_TITLE_AND_SLUG, LINKS_DATA, PROJECT_RELATIONS } from '../../fragments/fragments'
 
 export function GET_PROJECT(slug) {
   const query = gql`
     ${PROJECT_TITLE_AND_SLUG}
     ${LINKS_DATA}
+    ${PROJECT_RELATIONS}
     query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
           id
           attributes {
             ...ProjectTitleAndSlug
-            categories {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
-            languages {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
-            my_roles {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
+            ...ProjectRelations
             project_date {
               id
               is_ongoing

@@ -14,3 +14,29 @@ export const LINKS_DATA = gql`
     display_text
   }
 `
+
+export const PROJECT_RELATIONS = gql`
+  fragment ProjectRelations on Project {
+    categories {
+      data {
+        attributes {
+          name
+        }
+      }
+    }
+    languages {
+      data {
+        attributes {
+          name
+        }
+      }
+    }
+    my_roles {
+      data {
+        attributes {
+          name
+        }
+      }
+    }
+  }
+`
