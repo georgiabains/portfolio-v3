@@ -1,6 +1,6 @@
 import { apolloClient } from "../lib/apolloClient"
-import { GET_HEADER } from "../graphql/header"
-import { GET_ABOUT } from "../graphql/about"
+import { GET_HEADER } from "../graphql/queries/header"
+import { GET_ABOUT } from "../graphql/queries/about"
 import Link from "next/link"
 import Header from "../components/header"
 import ReactMarkdown from "react-markdown"
