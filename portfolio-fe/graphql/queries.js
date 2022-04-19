@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export const getHeader = gql`
+export const GET_HEADER = gql`
   query {
     header {
       data {
@@ -12,7 +12,7 @@ export const getHeader = gql`
   }
 `
 
-export const getAbout = gql`
+export const GET_ABOUT = gql`
   query {
     about {
       data {
@@ -25,7 +25,7 @@ export const getAbout = gql`
   }
 `
 
-export const getAllProjects = gql`
+export const GET_ALL_PROJECT_SLUGS = gql`
   query {
     projects {
       data {
@@ -39,7 +39,7 @@ export const getAllProjects = gql`
   }
 `
 
-export const getAllProjectCards = gql`
+export const GET_ALL_PROJECT_CARDS = gql`
   query {
     projects {
       data {
@@ -102,7 +102,7 @@ export const getAllProjectCards = gql`
   }
 `
 
-export function getProject(slug) {
+export function GET_PROJECT(slug) {
   const query = gql`
     query {
       projects (filters : { slug: { eq: "${slug}"} }) {

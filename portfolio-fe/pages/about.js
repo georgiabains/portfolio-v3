@@ -1,5 +1,5 @@
 import { apolloCon } from "../connection/apolloCon"
-import { getAbout, getHeader } from "../graphql/queries"
+import { GET_ABOUT, GET_HEADER } from "../graphql/queries"
 import Link from "next/link"
 import Header from "../components/header"
 import ReactMarkdown from "react-markdown"
@@ -19,11 +19,11 @@ export default function About({ siteHeader, about }) {
 
 export async function getStaticProps(context) {
   const { data, loading, error } = await apolloCon.query({
-    query: getHeader,
+    query: GET_HEADER,
   })
 
   const { data: aboutData, aboutLoading, aboutError } = await apolloCon.query({
-    query: getAbout,
+    query: GET_ABOUT,
   })
 
   const sanitizedAboutData = aboutData.about.data

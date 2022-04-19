@@ -1,5 +1,5 @@
 import { apolloCon } from "../connection/apolloCon"
-import { getHeader, getAllProjectCards } from "../graphql/queries"
+import { GET_HEADER, GET_ALL_PROJECT_CARDS } from "../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
 import Header from "../components/header"
@@ -68,11 +68,11 @@ export default function Home({ header, projects }) {
 
 export async function getStaticProps(context) {
   const { data, loading, error } = await apolloCon.query({
-    query: getAllProjectCards,
+    query: GET_ALL_PROJECT_CARDS,
   })
 
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloCon.query({
-    query: getHeader,
+    query: GET_HEADER,
   })
 
   const sanitizedHeaderData = headerData.header.data

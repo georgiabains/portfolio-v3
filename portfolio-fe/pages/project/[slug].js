@@ -1,5 +1,5 @@
 import { apolloCon } from "../../connection/apolloCon"
-import { getHeader, getProject, getAllProjects } from "../../graphql/queries"
+import { GET_HEADER, GET_PROJECT, GET_ALL_PROJECT_SLUGS } from "../../graphql/queries"
 import Image from "next/image"
 import Link from "next/link"
 import Header from "../../components/header"
@@ -113,7 +113,7 @@ const Project = ({ header, project }) => {
 
 export async function getStaticPaths() {
   const projects = await apolloCon.query({
-    query: getAllProjects,
+    query: GET_ALL_PROJECT_SLUGS,
   })
 
   return {
@@ -128,11 +128,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { data, loading, error } = await apolloCon.query({
-    query: getProject(context.params.slug),
+    query: GET_PROJECT(context.params.slug),
   })
 
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloCon.query({
-    query: getHeader,
+    query: GET_HEADER,
   })
 
   const sanitizedHeaderData = headerData.header.data
