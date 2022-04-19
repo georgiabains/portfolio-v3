@@ -1,8 +1,9 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG } from '../../fragments/fragments'
+import { PROJECT_TITLE_AND_SLUG, LINKS_DATA } from '../../fragments/fragments'
 
 export const GET_ALL_PROJECT_CARDS = gql`
   ${PROJECT_TITLE_AND_SLUG}
+  ${LINKS_DATA}
   query allProjectCardsQuery {
     projects {
       data {
@@ -51,9 +52,7 @@ export const GET_ALL_PROJECT_CARDS = gql`
                 }
               }
               links {
-                id
-                url
-                display_text
+                ...linksData
               }
               description
             }

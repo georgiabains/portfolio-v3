@@ -6,3 +6,11 @@ export const PROJECT_TITLE_AND_SLUG = gql`
     slug
   }
 `
+
+export const LINKS_DATA = gql`
+  fragment linksData on ComponentGlobalLink {
+    id
+    url
+    display_text
+  }
+`

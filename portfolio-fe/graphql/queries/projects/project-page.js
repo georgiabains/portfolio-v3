@@ -1,9 +1,10 @@
 import gql from 'graphql-tag'
-import { PROJECT_TITLE_AND_SLUG } from '../../fragments/fragments'
+import { PROJECT_TITLE_AND_SLUG, LINKS_DATA } from '../../fragments/fragments'
 
 export function GET_PROJECT(slug) {
   const query = gql`
     ${PROJECT_TITLE_AND_SLUG}
+    ${LINKS_DATA}
     query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
@@ -39,9 +40,7 @@ export function GET_PROJECT(slug) {
             }
             project_card {
             	links {
-                id
-                url
-                display_text
+                ...linksData
               }
             }
             project_page {
