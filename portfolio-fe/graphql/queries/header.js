@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { LINKS_DATA } from '../fragments/global'
 
 export const GET_HEADER = gql`
   query headerQuery {
@@ -6,8 +7,12 @@ export const GET_HEADER = gql`
       data {
         attributes {
           title
+          nav_links {
+            ...LinksData
+          }
         }
       }
     }
   }
+  ${LINKS_DATA}
 `

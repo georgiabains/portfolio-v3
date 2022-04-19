@@ -4,7 +4,8 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Header"
+    "displayName": "Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,11 @@
       "type": "string",
       "unique": false,
       "required": true
+    },
+    "nav_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.link"
     }
   }
 }
