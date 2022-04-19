@@ -12,7 +12,7 @@ export const IMAGE_DATA = gql`
 `
 
 export const LINKS_DATA = gql`
-  fragment linksData on ComponentGlobalLink {
+  fragment LinksData on ComponentGlobalLink {
     id
     url
     display_text

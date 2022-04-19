@@ -21,7 +21,7 @@ export const GET_ALL_PROJECT_CARDS = gql`
                 }
               }
               links {
-                ...linksData
+                ...LinksData
               }
               description
             }
@@ -67,7 +67,7 @@ export function GET_PROJECT(slug) {
             }
             project_card {
             	links {
-                ...linksData
+                ...LinksData
               }
             }
             project_page {
