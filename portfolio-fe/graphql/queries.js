@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const GET_HEADER = gql`
-  query {
+  query headerQuery {
     header {
       data {
         attributes {
@@ -13,7 +13,7 @@ export const GET_HEADER = gql`
 `
 
 export const GET_ABOUT = gql`
-  query {
+  query aboutQuery {
     about {
       data {
         attributes {
@@ -26,7 +26,7 @@ export const GET_ABOUT = gql`
 `
 
 export const GET_ALL_PROJECT_SLUGS = gql`
-  query {
+  query allProjectSlugsQuery{
     projects {
       data {
         id
@@ -40,7 +40,7 @@ export const GET_ALL_PROJECT_SLUGS = gql`
 `
 
 export const GET_ALL_PROJECT_CARDS = gql`
-  query {
+  query allProjectCardsQuery {
     projects {
       data {
         id
@@ -104,7 +104,7 @@ export const GET_ALL_PROJECT_CARDS = gql`
 
 export function GET_PROJECT(slug) {
   const query = gql`
-    query {
+    query projectQuery {
       projects (filters : { slug: { eq: "${slug}"} }) {
         data {
           id
