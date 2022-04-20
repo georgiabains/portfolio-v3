@@ -3,14 +3,14 @@ import { GET_HEADER } from "../graphql/queries/header"
 import { GET_ABOUT } from "../graphql/queries/about"
 import Link from "next/link"
 import Header from "../components/header"
-import ReactMarkdown from "react-markdown"
+import Markdown from "markdown-to-jsx"
 
 export default function About({ header, about }) {
   return (
     <div>
       <Header header={header}/>
       <h2>{about.attributes.title}</h2>
-      <ReactMarkdown children={about.attributes.content} />
+      <Markdown children={about.attributes.content} />
       <Link href="/">
         <a>back</a>
       </Link>
