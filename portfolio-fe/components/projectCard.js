@@ -2,19 +2,21 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function ProjectCard({ project }) {
+  const previewImages = project.attributes.project_card.preview_images
+
   return (
     <div key={project.id}>
       <h3>{project.attributes.title}</h3>
       <div className="preview-images">
         <Image
-          src={`http://localhost:3333${project.attributes.project_card.preview_images.desktop.data.attributes.url}`}
-          alt={`http://localhost:3333${project.attributes.project_card.preview_images.desktop.data.attributes.alternativeText}`}
+          src={`http://localhost:3333${previewImages.desktop.data.attributes.url}`}
+          alt={`http://localhost:3333${previewImages.desktop.data.attributes.alternativeText}`}
           width={640}
           height={351}
         />
         <Image
-          src={`http://localhost:3333${project.attributes.project_card.preview_images.mobile.data.attributes.url}`}
-          alt={`http://localhost:3333${project.attributes.project_card.preview_images.mobile.data.attributes.alternativeText}`}
+          src={`http://localhost:3333${previewImages.mobile.data.attributes.url}`}
+          alt={`http://localhost:3333${previewImages.mobile.data.attributes.alternativeText}`}
           width={256}
           height={553}
         />
