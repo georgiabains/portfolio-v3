@@ -3,6 +3,10 @@ import LinkData from "./linkData"
 
 export default function ProjectCard({ project }) {
   const previewImages = project.attributes.project_card.preview_images
+  const projectPageLink = { 
+    "url": `/project/${project.attributes.slug}`, 
+    "display_text": "project details"
+  }
 
   return (
     <div key={project.id}>
@@ -29,6 +33,9 @@ export default function ProjectCard({ project }) {
             </li>
           )
         })}
+        <li>
+          <LinkData linkData={projectPageLink} />
+        </li>
       </ul>
       <p>{project.attributes.project_card.description}</p>
       <ul className="roles">
