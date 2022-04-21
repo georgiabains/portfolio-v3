@@ -16,5 +16,6 @@ export const LINKS_DATA = gql`
     id
     url
     display_text
+    is_internal
   }
 `
