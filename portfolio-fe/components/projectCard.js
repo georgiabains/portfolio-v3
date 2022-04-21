@@ -5,7 +5,8 @@ export default function ProjectCard({ project }) {
   const previewImages = project.attributes.project_card.preview_images
   const projectPageLink = { 
     "url": `/project/${project.attributes.slug}`, 
-    "display_text": "project details"
+    "display_text": "project details",
+    "is_internal": true,
   }
 
   return (

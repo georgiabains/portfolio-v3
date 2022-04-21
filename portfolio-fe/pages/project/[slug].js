@@ -3,18 +3,20 @@ import { GET_HEADER } from "../../graphql/queries/header"
 import { GET_ALL_PROJECT_SLUGS, GET_PROJECT } from "../../graphql/queries/projects"
 import Image from "next/image"
 import Header from "../../components/header"
-import Markdown from "markdown-to-jsx"
 import LinkData from "../../components/linkData"
+import Link from "next/link"
+import Markdown from "markdown-to-jsx"
 
 const Project = ({ header, project }) => {
   const thisProject = project[0]
-  const breadcrumbs = { "url": "/", "display_text": "back"}
   return (
     <>
       <Header header={header}/>
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>
-        <LinkData linkData={breadcrumbs} />
+        <Link href={`/`}>
+          <a>back</a>
+        </Link>
 
         <div className="intro">
           <ul className="links">
