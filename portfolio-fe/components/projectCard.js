@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Link from "next/link"
+import LinkData from "./linkData"
 
 export default function ProjectCard({ project }) {
   const previewImages = project.attributes.project_card.preview_images
@@ -25,15 +25,10 @@ export default function ProjectCard({ project }) {
         {project.attributes.project_card.links.map((link) => {
           return (
             <li key={link.id}>
-              <a href={link.url}>{link.display_text}</a>
+              <LinkData linkData={link} />
             </li>
           )
         })}
-        <li>
-          <Link href={`/project/${project.attributes.slug}`}>
-            <a>project details</a>
-          </Link>
-        </li>
       </ul>
       <p>{project.attributes.project_card.description}</p>
       <ul className="roles">

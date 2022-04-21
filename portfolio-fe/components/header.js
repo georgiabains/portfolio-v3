@@ -1,4 +1,4 @@
-import Link from "next/link";
+import LinkData from "./linkData"
 
 export default function Header({ header }) {
   return (
@@ -9,9 +9,7 @@ export default function Header({ header }) {
           {header.attributes.nav_links.map((link) => {
             return (
               <li key={link.id}>
-                <Link href={link.url}>
-                  <a>{link.display_text}</a>
-                </Link>
+                <LinkData linkData={link} />
               </li>
             )
           })}
