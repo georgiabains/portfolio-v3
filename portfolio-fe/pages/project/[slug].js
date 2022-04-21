@@ -2,27 +2,26 @@ import { apolloClient } from "../../lib/apolloClient"
 import { GET_HEADER } from "../../graphql/queries/header"
 import { GET_ALL_PROJECT_SLUGS, GET_PROJECT } from "../../graphql/queries/projects"
 import Image from "next/image"
-import Link from "next/link"
 import Header from "../../components/header"
-import ReactMarkdown from "react-markdown"
+import Markdown from "markdown-to-jsx"
+import LinkData from "../../components/linkData"
 
 const Project = ({ header, project }) => {
   const thisProject = project[0]
+  const breadcrumbs = { "url": "/", "display_text": "back"}
   return (
     <>
       <Header header={header}/>
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>
-        <Link href={`/`}>
-          <a>back</a>
-        </Link>
+        <LinkData linkData={breadcrumbs} />
 
         <div className="intro">
           <ul className="links">
             {thisProject.attributes.project_card.links.map((link) => {
               return (
                 <li key={link.id}>
-                  <a href={link.url}>{link.display_text}</a>
+                  <LinkData linkData={link} />
                 </li>
               )
             })}
@@ -82,7 +81,7 @@ const Project = ({ header, project }) => {
           }
           if (content.copy) {
             return (
-              <ReactMarkdown children={content.copy} key={content.id} />
+              <Markdown children={content.copy} key={content.id} />
             )
           }
           if (content.imageWithCaption) {
