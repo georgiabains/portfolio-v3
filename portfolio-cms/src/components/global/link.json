@@ -2,7 +2,8 @@
   "collectionName": "components_global_links",
   "info": {
     "displayName": "Link",
-    "icon": "link"
+    "icon": "link",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,10 @@
     },
     "display_text": {
       "type": "string"
+    },
+    "is_internal": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
