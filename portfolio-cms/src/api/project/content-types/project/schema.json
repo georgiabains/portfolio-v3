@@ -55,6 +55,11 @@
       "type": "component",
       "repeatable": false,
       "component": "project.date-range"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seo"
     }
   }
 }
