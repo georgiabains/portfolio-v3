@@ -34,7 +34,7 @@ export default function ProjectCard({ project }) {
             </li>
           )
         })}
-        <li>
+        <li key={projectPageLink}>
           <LinkData linkData={projectPageLink} />
         </li>
       </ul>
