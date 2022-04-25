@@ -1,7 +1,6 @@
 import { apolloClient } from "../lib/apolloClient"
 import { GET_HEADER } from "../graphql/queries/header"
 import { GET_ALL_PROJECT_CARDS } from "../graphql/queries/projects"
-import Header from "../components/header"
 import ProjectCard from "../components/projectCard"
 import Seo from "../components/seo"
 
@@ -13,7 +12,6 @@ export default function Home({ header, projects }) {
   return (
     <div>
       <Seo seo={seo} siteTitle={header.attributes.title} />
-      <Header header={header}/>
       <div>
         <h2>Featured projects</h2>
         {projects &&

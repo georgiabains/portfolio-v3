@@ -2,7 +2,6 @@ import { apolloClient } from "../../lib/apolloClient"
 import { GET_HEADER } from "../../graphql/queries/header"
 import { GET_ALL_PROJECT_SLUGS, GET_PROJECT } from "../../graphql/queries/projects"
 import Image from "next/image"
-import Header from "../../components/header"
 import LinkData from "../../components/linkData"
 import Link from "next/link"
 import Markdown from "markdown-to-jsx"
@@ -14,7 +13,6 @@ const Project = ({ header, project }) => {
     <>
       {/* TODO: Pass siteTitle in a more dynamic way - just in case header.attributes.title path changes */}
       <Seo seo={thisProject.attributes.seo} siteTitle={header.attributes.title} />
-      <Header header={header}/>
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>
         <Link href={`/`}>
