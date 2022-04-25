@@ -1,17 +1,15 @@
 import { apolloClient } from "../lib/apolloClient"
 import { GET_HEADER } from "../graphql/queries/header"
 import { GET_ALL_PROJECT_CARDS } from "../graphql/queries/projects"
+import { GET_DEFAULT_SEO_DATA } from "../graphql/queries/defaultSeo"
 import ProjectCard from "../components/projectCard"
 import Seo from "../components/seo"
 
-export default function Home({ header, projects }) {
-  const seo = {
-    "metaDescription": "View some of the projects I've created for myself and various companies over the past few years.",
-  }
+export default function Home({ projects, defaultSeo }) {
 
   return (
     <div>
-      <Seo seo={seo} siteTitle={header.attributes.title} />
+      <Seo defaultSeo={defaultSeo} />
       <div>
         <h2>Featured projects</h2>
         {projects &&
@@ -27,6 +25,10 @@ export default function Home({ header, projects }) {
 }
 
 export async function getStaticProps(context) {
+  const { data: defaultSeoData, loading: defaultSeoLoading, error: defaultSeoError } = await apolloClient.query({
+    query: GET_DEFAULT_SEO_DATA,
+  })
+
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
@@ -35,11 +37,13 @@ export async function getStaticProps(context) {
     query: GET_ALL_PROJECT_CARDS,
   })
 
+  const sanitizedDefaultSeoData = defaultSeoData.defaultSeo.data.attributes.defaultSeo
   const sanitizedProjectData = projectData.projects.data
   const sanitizedHeaderData = headerData.header.data
 
   return {
     props: {
+      defaultSeo: sanitizedDefaultSeoData,
       header: sanitizedHeaderData,
       projects: sanitizedProjectData,
     }

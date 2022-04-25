@@ -1,20 +1,24 @@
 import Head from "next/head"
 
-export default function Seo({ seo, siteTitle }) {
-  // TODO: Clean this title code up
-  let title = ''
-  if (seo.metaTitle) {
-    title = `${seo.metaTitle} - ${siteTitle}`
-  } else {
-    title = siteTitle
-  }
+export default function Seo({ seo, defaultSeo }) {
+  const title = seo?.metaTitle
+    ? `${seo.metaTitle} - ${defaultSeo.metaTitle}`
+    : defaultSeo.metaTitle
 
+  const description = seo?.metaDescription
+    ? seo.metaDescription
+    : defaultSeo.metaDescription
+  
+  const image = seo?.shareImage?.data 
+    ? `http://localhost:3333${seo.shareImage.data.attributes.url}`
+    : `http://localhost:3333${defaultSeo.shareImage.data.attributes.url}`
+  
   return (
     <Head>
       <title>{title}</title>
       <meta 
         name="description" 
-        content={seo.metaDescription} 
+        content={description} 
         key="description" 
       />
       <meta
@@ -24,17 +28,17 @@ export default function Seo({ seo, siteTitle }) {
       />
       <meta 
         property="og:title" 
-        content={seo.metaTitle} 
+        content={title}
         key="og:title" 
       />
       <meta
         property="og:description"
-        content={seo.metaDescription}
+        content={description} 
         key="og:description"
       />
       <meta 
         property="og:image" 
-        content={seo.shareImage} 
+        content={image} 
         key="og:image" 
       />
     </Head>

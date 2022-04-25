@@ -1,18 +1,18 @@
 import { apolloClient } from "../../lib/apolloClient"
 import { GET_HEADER } from "../../graphql/queries/header"
 import { GET_ALL_PROJECT_SLUGS, GET_PROJECT } from "../../graphql/queries/projects"
+import { GET_DEFAULT_SEO_DATA } from "../../graphql/queries/defaultSeo"
 import Image from "next/image"
 import LinkData from "../../components/linkData"
 import Link from "next/link"
 import Markdown from "markdown-to-jsx"
 import Seo from "../../components/seo"
 
-const Project = ({ header, project }) => {
+const Project = ({ project, defaultSeo }) => {
   const thisProject = project[0]
   return (
     <>
-      {/* TODO: Pass siteTitle in a more dynamic way - just in case header.attributes.title path changes */}
-      <Seo seo={thisProject.attributes.seo} siteTitle={header.attributes.title} />
+      <Seo seo={thisProject.attributes.seo} defaultSeo={defaultSeo} />
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>
         <Link href={`/`}>
@@ -130,6 +130,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const { data: defaultSeoData, loading: defaultSeoLoading, error: defaultSeoError } = await apolloClient.query({
+    query: GET_DEFAULT_SEO_DATA,
+  })
+
   const { data: headerData, loading: headerLoading , error: headerError } = await apolloClient.query({
     query: GET_HEADER,
   })
@@ -138,11 +142,13 @@ export async function getStaticProps(context) {
     query: GET_PROJECT(context.params.slug),
   })
 
+  const sanitizedDefaultSeoData = defaultSeoData.defaultSeo.data.attributes.defaultSeo
   const sanitizedHeaderData = headerData.header.data
   const sanitizedProjectData = projectData.projects.data
 
   return {
     props: {
+      defaultSeo: sanitizedDefaultSeoData,
       project: sanitizedProjectData,
       header: sanitizedHeaderData,
     }
