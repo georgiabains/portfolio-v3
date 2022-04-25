@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "default_seos",
+  "info": {
+    "singularName": "default-seo",
+    "pluralName": "default-seos",
+    "displayName": "Default SEO",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "defaultSeo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seo"
+    }
+  }
+}
