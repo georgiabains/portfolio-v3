@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { IMAGE_DATA, LINKS_DATA } from '../fragments/global'
+import { IMAGE_DATA, LINKS_DATA, SEO_DATA } from '../fragments/global'
 import { PROJECT_RELATIONS, PROJECT_TITLE_AND_SLUG } from '../fragments/project'
 
 export const GET_ALL_PROJECT_CARDS = gql`
@@ -94,6 +94,9 @@ export function GET_PROJECT(slug) {
                 videoCaption : caption
               }
             }
+            seo {
+              ...SeoData
+            }
           }
         }
       }
@@ -102,6 +105,7 @@ export function GET_PROJECT(slug) {
     ${LINKS_DATA}
     ${PROJECT_RELATIONS}
     ${PROJECT_TITLE_AND_SLUG}
+    ${SEO_DATA}
   `
   
   return query

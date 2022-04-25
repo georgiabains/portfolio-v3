@@ -4,10 +4,12 @@ import { GET_ABOUT } from "../graphql/queries/about"
 import Link from "next/link"
 import Header from "../components/header"
 import Markdown from "markdown-to-jsx"
+import Seo from "../components/seo"
 
 export default function About({ header, about }) {
   return (
     <div>
+      <Seo seo={about.attributes.seo} siteTitle={header.attributes.title} />
       <Header header={header}/>
       <h2>{about.attributes.title}</h2>
       <Markdown children={about.attributes.content} />

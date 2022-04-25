@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
   return (
     <div key={project.id}>
       <h3>{project.attributes.title}</h3>
-      <div className="preview-images">
+      <div className="preview-images" key="preview-images">
         <Image
           src={`http://localhost:3333${previewImages.desktop.data.attributes.url}`}
           alt={`http://localhost:3333${previewImages.desktop.data.attributes.alternativeText}`}
@@ -26,7 +26,7 @@ export default function ProjectCard({ project }) {
           height={553}
         />
       </div>
-      <ul className="links">
+      <ul className="links" key="links">
         {project.attributes.project_card.links.map((link) => {
           return (
             <li key={link.id}>

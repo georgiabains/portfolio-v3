@@ -6,11 +6,14 @@ import Header from "../../components/header"
 import LinkData from "../../components/linkData"
 import Link from "next/link"
 import Markdown from "markdown-to-jsx"
+import Seo from "../../components/seo"
 
 const Project = ({ header, project }) => {
   const thisProject = project[0]
   return (
     <>
+      {/* TODO: Pass siteTitle in a more dynamic way - just in case header.attributes.title path changes */}
+      <Seo seo={thisProject.attributes.seo} siteTitle={header.attributes.title} />
       <Header header={header}/>
       <div key={`project-${thisProject.id}`}>
         <h2>{thisProject.attributes.title}</h2>

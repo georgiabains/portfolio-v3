@@ -19,3 +19,9 @@ export const LINKS_DATA = gql`
     is_internal
   }
 `
+
+export const SEO_DATA = gql`
+  fragment SeoData on ComponentGlobalSeo {
+    metaTitle
+  }
+`
