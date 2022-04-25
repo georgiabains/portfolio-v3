@@ -23,5 +23,10 @@ export const LINKS_DATA = gql`
 export const SEO_DATA = gql`
   fragment SeoData on ComponentGlobalSeo {
     metaTitle
+    metaDescription
+    shareImage {
+      ...ImageData
+    }
   }
+  ${IMAGE_DATA}
 `
